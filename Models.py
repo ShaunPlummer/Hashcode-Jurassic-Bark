@@ -4,7 +4,6 @@ class Intersection:
         self.streets_in = streets_in
         self.streets_out = streets_out
 
-
 class Street:
     def __init__(self, line):
         parts = line.split(" ")
@@ -12,6 +11,11 @@ class Street:
         self.end = int(parts[1])
         self.name = parts[2]
         self.time = int(parts[3])
+        self.traffic_count = 0
+
+    def getGreenTime(self, end_intersection):
+        sum(s.traffic_count for s in end_intersection.streets_in)
+
 
     def __str__(self):
         return str(self.start) + " -> " + str(self.end) + " " + self.name + str(self.time)

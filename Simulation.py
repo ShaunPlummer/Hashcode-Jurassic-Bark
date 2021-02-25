@@ -20,12 +20,12 @@ class Simulation:
             file.write(str(len(intersections)) + "\n")
             # iterate the intersections
             for inter in intersections:
-                print("\n Intersection" + str(inter.num) + " in: " + str(inter.streets_in))
+                # print("\n Intersection" + str(inter.num) + " in: " + str(inter.streets_in))
                 # print the number of incoming streets
                 file.write(str(inter.num) + "\n")
                 file.write(str(len(inter.streets_in)) + "\n")
                 # iterate the streets and
                 for street_name in inter.streets_in:
-                    street_model = self.environment.getStreet(street_name)
+                    street_model = self.environment.streetList[street_name]
 
                     file.write(street_model.name + " " + str(street_model.time) + " \n")

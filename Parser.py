@@ -13,11 +13,12 @@ def process_input(file_path):
     car_count = int(parts[3])
     bonus = int(parts[4])
 
-    streets = []
-
+    streets = {}
     print("Processing " + file_path + " with header " + header)
     for i in range(0, street_count):
-        streets.append(Street(file.readline()))
+        # streets.append(Street(file.readline()))
+        s = Street(file.readline())
+        streets[s.name] = s
 
     print("streets" + str(len(streets)))
 
@@ -25,7 +26,7 @@ def process_input(file_path):
     for i in range(0, intersection_count):
         intersections.append(Intersection(i, [], []))
 
-    for street in streets:
+    for key, street in streets.items():
         intersections[street.start].streets_out.append(street.name)
         intersections[street.end].streets_in.append(street.name)
 
@@ -37,7 +38,11 @@ def process_input(file_path):
         car = Car(i, num, route)
         cars.append(car)
 
+        for road in car.streets:
+            streets[road].traffic_count += 1
+
     file.close()
+
     return Environment(
         rounds,
         intersections,
