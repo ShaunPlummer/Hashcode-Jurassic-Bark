@@ -1,4 +1,4 @@
-from InputData import Environment
+from Environment import Environment
 from Models import *
 
 
