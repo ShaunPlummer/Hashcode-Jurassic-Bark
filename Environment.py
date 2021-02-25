@@ -3,19 +3,19 @@ class Environment:
             self,
             duration,
             intersections,
-            numStreet,
-            numCars,
-            bonusPoints,
-            streetList,
-            carList,
+            num_streets,
+            num_cars,
+            bonus_points,
+            street_list,
+            car_list,
     ):
         self.duration = duration
         self.intersections = intersections
-        self.numStreet = numStreet,
-        self.numCars = numCars,
-        self.streetList = streetList
-        self.carList = carList
-        self.bonus = bonusPoints
+        self.numStreet = num_streets,
+        self.numCars = num_cars,
+        self.streetList = street_list
+        self.carList = car_list
+        self.bonus = bonus_points
 
     def summary(self):
         print("car_count: " + str(len(self.carList)) + " \nstreet_count: " + str(
