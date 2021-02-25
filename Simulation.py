@@ -28,4 +28,7 @@ class Simulation:
                 for street_name in inter.streets_in:
                     street_model = self.environment.streetList[street_name]
 
-                    file.write(street_model.name + " " + str(street_model.time) + " \n")
+                    if street_model.get_green_time != 0:
+                        file.write(street_model.name + " " + str(street_model.get_green_time()) + " \n")
+                    else:
+                        print("\ntime" + street_model.get_green_time())
