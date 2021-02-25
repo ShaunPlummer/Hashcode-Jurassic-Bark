@@ -1,7 +1,8 @@
 class Intersection:
-    def __init__(self, num, street):
+    def __init__(self, num, streets_in, streets_out):
         self.num = num
-        self.streets = street
+        self.streets_in = streets_in
+        self.streets_out = streets_out
 
     # def getMaxStreetWithMaxCars:
 #         self.streets.
