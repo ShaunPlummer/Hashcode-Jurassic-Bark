@@ -1,5 +1,7 @@
 from InputData import Environment
 from Models import *
+
+
 def process_input(file_path):
     file = open(file_path)
     header = file.readline()
@@ -22,20 +24,19 @@ def process_input(file_path):
 
     cars = []
     for i in range(0, car_count):
-        print("read in cars")
+        line = file.readline()
+        streets = line.split()
+        num = streets.pop(0)
+        car = Car(i, num, streets)
+        cars.append(car)
 
-
-    header_array = header.split()
-    print(header_array)
-
-    with open(file_path) as fp:
-        for cnt, line in enumerate(fp):
-            if cnt > int(header_array[2]):
-                streets = line.split()
-                num = streets.pop(0)
-                car = Car(cnt, num, streets)
-                cars.append(car)
-                
-        
-    return Environment(rounds, intersections, streets, cars, bonus)
-
+    file.close()
+    return Environment(
+        rounds,
+        intersections,
+        street_count,
+        car_count,
+        bonus,
+        streets,
+        cars
+    )

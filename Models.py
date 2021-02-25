@@ -3,8 +3,8 @@ class Intersection:
         self.num = num
         self.streets = street
 
-    def getMaxStreetWithMaxCars:
-        self.streets.
+    # def getMaxStreetWithMaxCars:
+#         self.streets.
 
 
 class Street:

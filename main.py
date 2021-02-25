@@ -1,4 +1,5 @@
 import os
+
 from Parser import process_input
 from Simulation import Simulation
 
@@ -11,6 +12,7 @@ if __name__ == '__main__':
         file_name = os.fsdecode(file)
         if file_name.endswith(".txt"):
             environment = process_input(input_dir + "/" + file_name)
+            environment.summary()
             Simulation(file_name, environment).run()
             continue
         else:
