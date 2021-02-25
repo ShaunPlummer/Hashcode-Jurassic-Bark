@@ -1,6 +1,5 @@
 from InputData import Environment
 from Models import *
-
 def process_input(file_path):
     file = open(file_path)
     header = file.readline()
