@@ -4,17 +4,17 @@ class Intersection:
         self.streets_in = streets_in
         self.streets_out = streets_out
 
-    # def getMaxStreetWithMaxCars:
-#         self.streets.
-
 
 class Street:
     def __init__(self, line):
         parts = line.split(" ")
-        self.start = parts[0]
-        self.end = parts[1]
+        self.start = int(parts[0])
+        self.end = int(parts[1])
         self.name = parts[2]
-        self.time = parts[3]
+        self.time = int(parts[3])
+
+    def __str__(self):
+        return str(self.start) + " -> " + str(self.end) + " " + self.name + str(self.time)
 
 
 class Car:
