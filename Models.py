@@ -19,5 +19,11 @@ class Street:
         self.name = parts[2]
         self.time = parts[3]
 
+class Car:
+
+    def __init__(self, id, num_of_streets, streets):
+        self.id = id
+        self.num_of_streets = id
+        self.streets = streets
 
 

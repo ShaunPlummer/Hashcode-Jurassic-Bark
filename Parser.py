@@ -33,8 +33,10 @@ def process_input(file_path):
         for cnt, line in enumerate(fp):
             if cnt > int(header_array[2]):
                 streets = line.split()
-                streets.pop(0)
-                print(streets)
+                num = streets.pop(0)
+                car = Car(cnt, num, streets)
+                cars.append(car)
+                
         
     return Environment(rounds, intersections, streets, cars, bonus)
 
