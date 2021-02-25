@@ -12,7 +12,7 @@ class Simulation:
     def run(self):
         print("Running simulation")
         self.solve()
-        self.writeToFile()
+        self.write_to_file()
 
     def set_green_duration(self, street, duration):
         value = min(street.time, int(duration))
@@ -41,7 +41,7 @@ class Simulation:
 
                 self.set_green_duration(street_model, time)
 
-    def writeToFile(self):
+    def write_to_file(self):
         with open("output/" + self.file_name, "w+") as file:
             # The total number of intersections with at least one non-zero green_duration
 
