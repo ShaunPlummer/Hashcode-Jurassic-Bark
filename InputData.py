@@ -1,7 +1,10 @@
 
 class Environment:
-    def __init__(self, x, y, z):
-        self._data_x = x
-        self._data_y = y
-        self._data_z = z
+    def __init__(self, rounds, intersections, streets, cars, bonusPoints):
+        self._rounds = rounds
+        self._intersection = intersections
+        self._streets = streets
+        self._cars = cars
+        self._bonus = bonusPoints
+
 
