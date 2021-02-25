@@ -1,11 +1,13 @@
 
 class Intersection:
     def __init__(self, num, street):
-        self.__num = num
-        self.__steets = street
+        self.num = num
+        self.streets = street
+
+    def getMaxStreetWithMaxCars:
+            self.streets.
 
 class Street:
-
     def __init__(self, name, start, end, time):
         self.name = name
         self.start = start

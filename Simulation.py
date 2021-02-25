@@ -11,3 +11,10 @@ class Simulation:
 
     def run(self):
         print("Running simulation")
+
+        for int in self.environment.intersection:
+            int.getMaxStreetWithMaxCars()
+
+
+
+
