@@ -4,7 +4,27 @@ from Models import *
 def process_input(file_path):
     file = open(file_path)
     header = file.readline()
+
+    parts = header.split(" ")
+    rounds = int(parts[0])
+    intersection_count = int(parts[1])
+    street_count = int(parts[2])
+    car_count = int(parts[3])
+    bonus = int(parts[4])
+
+    streets = []
+
     print("Processing " + file_path + " with header " + header)
+    for i in range(0, street_count):
+        streets.append(Street(file.readline()))
+
+    print("generate intersections from streets here")
+    intersections = []
+
+    cars = []
+    for i in range(0, car_count):
+        print("read in cars")
+
 
     header_array = header.split()
     print(header_array)
@@ -16,6 +36,5 @@ def process_input(file_path):
                 streets.pop(0)
                 print(streets)
         
+    return Environment(rounds, intersections, streets, cars, bonus)
 
-
-    return Environment(header_array[0], header_array[1], header_array[2], header_array[3], header_array[4])
