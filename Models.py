@@ -5,12 +5,17 @@ class Intersection:
         self.__num = num
 
 class Street:
-    def __init__(self, name, start, end):
-        self.__name = name
-        self.__start = start
-        self.__end = end
+    def __init__(self, name, start, end, time):
+        self.name = name
+        self.start = start
+        self.end = end
+        self.time = time
 
-
-
+    def __init__(self, line):
+        parts = line.split(" ")
+        self.start = parts[0]
+        self.end = parts[1]
+        self.name = parts[2]
+        self.time = parts[3]
 
 
