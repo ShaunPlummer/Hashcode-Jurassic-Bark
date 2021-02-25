@@ -10,10 +10,6 @@ if __name__ == '__main__':
     directory = os.fsencode(input_dir)
     for file in os.listdir(directory):
         file_name = os.fsdecode(file)
-        if file_name.endswith("b.txt"):
-            environment = process_input(input_dir + "/" + file_name)
-            environment.summary()
-            Simulation(file_name, environment).run()
-            continue
-        else:
-            continue
+        environment = process_input(input_dir + "/" + file_name)
+        environment.summary()
+        Simulation(file_name, environment).run()
