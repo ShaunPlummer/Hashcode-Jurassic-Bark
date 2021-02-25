@@ -11,6 +11,8 @@ class Environment:
     ):
         self.duration = duration
         self.intersections = intersections
+        self.numStreet = numStreet,
+        self.numCars = numCars,
         self.streetList = streetList
         self.carList = carList
         self.bonus = bonusPoints
