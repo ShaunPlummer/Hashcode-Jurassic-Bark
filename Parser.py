@@ -19,15 +19,16 @@ def process_input(file_path):
     for i in range(0, street_count):
         streets.append(Street(file.readline()))
 
+    print("streets" + str(len(streets)))
     print("generate intersections from streets here")
     intersections = []
 
     cars = []
     for i in range(0, car_count):
         line = file.readline()
-        streets = line.split()
-        num = streets.pop(0)
-        car = Car(i, num, streets)
+        route = line.split()
+        num = route.pop(0)
+        car = Car(i, num, route)
         cars.append(car)
 
     file.close()
