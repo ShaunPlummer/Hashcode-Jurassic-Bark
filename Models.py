@@ -3,7 +3,7 @@ class Intersection:
         self.num = num
         self.streets_in = streets_in
         self.streets_out = streets_out
-        self.non_zero_streets = 0
+        self.solution_non_zero_streets = 0
 
 
 class Street:
