@@ -45,10 +45,12 @@ def process_input(file_path):
         for road in car.streets:
             streets[road].traffic_count += 1
             route_length += streets[road].time
+        route_length -= streets[car.streets[0]].time
+
         if route_length > rounds:
             impossible_routes += 1
         else:
-            total_early_score_available += rounds - route_length + 1
+            total_early_score_available += rounds - route_length
 
     file.close()
 
