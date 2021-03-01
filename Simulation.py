@@ -16,9 +16,8 @@ class Simulation:
 
     def set_green_duration(self, intersections, street, duration):
         value = min(street.time, int(duration))
-        street.green_duration = value
-        if value != 0:
-            intersections[street.end].solution_non_zero_streets += 1
+        if value > 0:
+            intersections[street.end].solution.append((street.name, value))
 
     def solve(self):
         intersections = self.environment.intersections
@@ -57,22 +56,22 @@ class Simulation:
             # The total number of intersections with at least one non-zero green_duration
             intersections = self.environment.intersections
 
-            non_zero_intersections = sum((0 if i.solution_non_zero_streets == 0 else 1) for i in intersections)
+            non_zero_intersections = sum((0 if len(i.solution) == 0 else 1) for i in intersections)
 
             file.write(str(non_zero_intersections) + "\n")
 
             # iterate the intersections
             for inter in self.environment.intersections:
                 # Check number of streets with non-zero durations
-                non_zero_streets = inter.solution_non_zero_streets
+                non_zero_streets = len(inter.solution)
 
                 if non_zero_streets != 0:
                     file.write(str(inter.num) + "\n")  # intersection ID
                     file.write(str(non_zero_streets) + "\n")  # non zero streets
 
-                    for street_name in inter.streets_in:
+                    for (street_name, green_duration) in inter.solution:
                         street_model = self.environment.streetList[street_name]
 
-                        if street_model.green_duration != 0:
-                            file.write(street_model.name + " " + str(street_model.green_duration) + "\n")
+                        if green_duration != 0:
+                            file.write(street_model.name + " " + str(green_duration) + "\n")
 
