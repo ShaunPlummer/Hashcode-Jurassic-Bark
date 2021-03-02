@@ -35,7 +35,7 @@ def process_input(file_path):
         line = file.readline()
         route = line.split()
         num = route.pop(0)
-        car = Car(i, num, route)
+        car = Car(i, int(num), route)
         cars.append(car)
 
         for road in car.streets:
