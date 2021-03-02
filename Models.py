@@ -3,7 +3,14 @@ class Intersection:
         self.num = num
         self.streets_in = streets_in
         self.streets_out = streets_out
-        self.solution_non_zero_streets = 0
+        self.schedule = []
+        self.green_street_index = 0
+
+    def is_green(self, street):
+        if self.green_street_index < len(self.schedule):
+            return self.schedule[self.green_street_index][0] == street
+        else:
+            return False
 
 
 class Street:
@@ -14,7 +21,6 @@ class Street:
         self.name = parts[2]
         self.time = int(parts[3])
         self.traffic_count = 0
-        self.green_duration = 0
 
     def __str__(self):
         return str(self.start) + " -> " + str(self.end) + " " + self.name + str(self.time)
@@ -25,3 +31,4 @@ class Car:
         self.id = id
         self.num_of_streets = num_of_streets
         self.streets = streets
+        self.location = 0
