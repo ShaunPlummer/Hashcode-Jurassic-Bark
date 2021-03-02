@@ -69,17 +69,22 @@ class Simulation:
                     lights[t + intersection.schedule[next_index][1]].append(intersection)
 
             for (s, q) in queues.items():
-                if intersections[streets[s].end].is_green(s):
-                    # Green light
-                    if q:
+                if q:
+                    if intersections[streets[s].end].is_green(s):
+                        # Green light
                         car = q.pop()
                         car.location += 1  # Car moves to next street
+                        #print("car " + str(car.id) + " crossed intersection to street " + car.streets[car.location])
                         travel_time = streets[car.streets[car.location]].time  # next road travel time
                         if t + travel_time < duration:
                             arrivals[t + travel_time].append((car, car.location))
+                    else:
+                        car = q[-1]
+                        #print("car " + str(car.id) + " waiting at " + car.streets[car.location] + " -> " + car.streets[car.location + 1])
             t += 1
 
         print("score: " + str(score) + "\n")
+        #input("next")
 
     def solve(self):
         intersections = self.environment.intersections
