@@ -13,6 +13,9 @@ def process_input(file_path):
     car_count = int(parts[3])
     bonus = int(parts[4])
 
+    impossible_routes = 0
+    total_early_score_available = 0
+
     streets = {}
     print("Processing " + file_path + " with header " + header)
     for i in range(0, street_count):
@@ -38,10 +41,26 @@ def process_input(file_path):
         car = Car(i, int(num), route)
         cars.append(car)
 
+        route_length = 0
         for road in car.streets:
             streets[road].traffic_count += 1
+            route_length += streets[road].time
+        route_length -= streets[car.streets[0]].time
+
+        if route_length > rounds:
+            impossible_routes += 1
+        else:
+            total_early_score_available += rounds - route_length
 
     file.close()
+
+    perfect_score = bonus * (car_count - impossible_routes) + total_early_score_available
+
+    print("")
+    print("Input analysis for " + file_path)
+    print("Impossible routes: " + str(impossible_routes))
+    print("Perfect score: " + str(perfect_score))
+    print("")
 
     return Environment(
         rounds,
